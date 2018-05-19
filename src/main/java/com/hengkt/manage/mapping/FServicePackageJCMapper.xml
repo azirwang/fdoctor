@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengkt.manage.mapper.FServicePackageJCMapper">
+  <resultMap id="BaseResultMap" type="com.hengkt.manage.model.FServicePackageJC">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="doc_code" jdbcType="VARCHAR" property="docCode" />
+    <result column="doc_name" jdbcType="VARCHAR" property="docName" />
+    <result column="service_package_type_code" jdbcType="VARCHAR" property="servicePackageTypeCode" />
+    <result column="service_package_type_name" jdbcType="VARCHAR" property="servicePackageTypeName" />
+    <result column="person_type_code" jdbcType="VARCHAR" property="personTypeCode" />
+    <result column="person_type_name" jdbcType="VARCHAR" property="personTypeName" />
+    <result column="jc_build_health_records" jdbcType="VARCHAR" property="jcBuildHealthRecords" />
+    <result column="jc_health_consult" jdbcType="VARCHAR" property="jcHealthConsult" />
+    <result column="jc_health_guide" jdbcType="VARCHAR" property="jcHealthGuide" />
+    <result column="jc_health_education" jdbcType="VARCHAR" property="jcHealthEducation" />
+    <result column="jc_appoint_clinic" jdbcType="VARCHAR" property="jcAppointClinic" />
+    <result column="jc_hierarchical_medical_service" jdbcType="VARCHAR" property="jcHierarchicalMedicalService" />
+    <result column="extend0" jdbcType="VARCHAR" property="extend0" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="VARCHAR" property="extend2" />
+    <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_code, user_name, doc_code, doc_name, service_package_type_code, service_package_type_name, 
+    person_type_code, person_type_name, jc_build_health_records, jc_health_consult, jc_health_guide, 
+    jc_health_education, jc_appoint_clinic, jc_hierarchical_medical_service, extend0, 
+    extend1, extend2, extend3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_service_package_jc
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_service_package_jc
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    insert into t_service_package_jc (id, user_code, user_name, 
+      doc_code, doc_name, service_package_type_code, 
+      service_package_type_name, person_type_code, 
+      person_type_name, jc_build_health_records, jc_health_consult, 
+      jc_health_guide, jc_health_education, jc_appoint_clinic, 
+      jc_hierarchical_medical_service, extend0, 
+      extend1, extend2, extend3
+      )
+    values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{docCode,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, #{servicePackageTypeCode,jdbcType=VARCHAR}, 
+      #{servicePackageTypeName,jdbcType=VARCHAR}, #{personTypeCode,jdbcType=VARCHAR}, 
+      #{personTypeName,jdbcType=VARCHAR}, #{jcBuildHealthRecords,jdbcType=VARCHAR}, #{jcHealthConsult,jdbcType=VARCHAR}, 
+      #{jcHealthGuide,jdbcType=VARCHAR}, #{jcHealthEducation,jdbcType=VARCHAR}, #{jcAppointClinic,jdbcType=VARCHAR}, 
+      #{jcHierarchicalMedicalService,jdbcType=VARCHAR}, #{extend0,jdbcType=VARCHAR}, 
+      #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, #{extend3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    insert into t_service_package_jc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userCode != null">
+        user_code,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="docCode != null">
+        doc_code,
+      </if>
+      <if test="docName != null">
+        doc_name,
+      </if>
+      <if test="servicePackageTypeCode != null">
+        service_package_type_code,
+      </if>
+      <if test="servicePackageTypeName != null">
+        service_package_type_name,
+      </if>
+      <if test="personTypeCode != null">
+        person_type_code,
+      </if>
+      <if test="personTypeName != null">
+        person_type_name,
+      </if>
+      <if test="jcBuildHealthRecords != null">
+        jc_build_health_records,
+      </if>
+      <if test="jcHealthConsult != null">
+        jc_health_consult,
+      </if>
+      <if test="jcHealthGuide != null">
+        jc_health_guide,
+      </if>
+      <if test="jcHealthEducation != null">
+        jc_health_education,
+      </if>
+      <if test="jcAppointClinic != null">
+        jc_appoint_clinic,
+      </if>
+      <if test="jcHierarchicalMedicalService != null">
+        jc_hierarchical_medical_service,
+      </if>
+      <if test="extend0 != null">
+        extend0,
+      </if>
+      <if test="extend1 != null">
+        extend1,
+      </if>
+      <if test="extend2 != null">
+        extend2,
+      </if>
+      <if test="extend3 != null">
+        extend3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="docCode != null">
+        #{docCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeCode != null">
+        #{servicePackageTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeName != null">
+        #{servicePackageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeCode != null">
+        #{personTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeName != null">
+        #{personTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="jcBuildHealthRecords != null">
+        #{jcBuildHealthRecords,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthConsult != null">
+        #{jcHealthConsult,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthGuide != null">
+        #{jcHealthGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthEducation != null">
+        #{jcHealthEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="jcAppointClinic != null">
+        #{jcAppointClinic,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHierarchicalMedicalService != null">
+        #{jcHierarchicalMedicalService,jdbcType=VARCHAR},
+      </if>
+      <if test="extend0 != null">
+        #{extend0,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        #{extend3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    update t_service_package_jc
+    <set>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="docCode != null">
+        doc_code = #{docCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        doc_name = #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeCode != null">
+        service_package_type_code = #{servicePackageTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeName != null">
+        service_package_type_name = #{servicePackageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeCode != null">
+        person_type_code = #{personTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeName != null">
+        person_type_name = #{personTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="jcBuildHealthRecords != null">
+        jc_build_health_records = #{jcBuildHealthRecords,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthConsult != null">
+        jc_health_consult = #{jcHealthConsult,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthGuide != null">
+        jc_health_guide = #{jcHealthGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthEducation != null">
+        jc_health_education = #{jcHealthEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="jcAppointClinic != null">
+        jc_appoint_clinic = #{jcAppointClinic,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHierarchicalMedicalService != null">
+        jc_hierarchical_medical_service = #{jcHierarchicalMedicalService,jdbcType=VARCHAR},
+      </if>
+      <if test="extend0 != null">
+        extend0 = #{extend0,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        extend2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        extend3 = #{extend3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    update t_service_package_jc
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      doc_code = #{docCode,jdbcType=VARCHAR},
+      doc_name = #{docName,jdbcType=VARCHAR},
+      service_package_type_code = #{servicePackageTypeCode,jdbcType=VARCHAR},
+      service_package_type_name = #{servicePackageTypeName,jdbcType=VARCHAR},
+      person_type_code = #{personTypeCode,jdbcType=VARCHAR},
+      person_type_name = #{personTypeName,jdbcType=VARCHAR},
+      jc_build_health_records = #{jcBuildHealthRecords,jdbcType=VARCHAR},
+      jc_health_consult = #{jcHealthConsult,jdbcType=VARCHAR},
+      jc_health_guide = #{jcHealthGuide,jdbcType=VARCHAR},
+      jc_health_education = #{jcHealthEducation,jdbcType=VARCHAR},
+      jc_appoint_clinic = #{jcAppointClinic,jdbcType=VARCHAR},
+      jc_hierarchical_medical_service = #{jcHierarchicalMedicalService,jdbcType=VARCHAR},
+      extend0 = #{extend0,jdbcType=VARCHAR},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=VARCHAR},
+      extend3 = #{extend3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.hengkt.manage.model.FServicePackageJC">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="doc_code" jdbcType="VARCHAR" property="docCode" />
+    <result column="doc_name" jdbcType="VARCHAR" property="docName" />
+    <result column="service_package_type_code" jdbcType="VARCHAR" property="servicePackageTypeCode" />
+    <result column="service_package_type_name" jdbcType="VARCHAR" property="servicePackageTypeName" />
+    <result column="person_type_code" jdbcType="VARCHAR" property="personTypeCode" />
+    <result column="person_type_name" jdbcType="VARCHAR" property="personTypeName" />
+    <result column="jc_build_health_records" jdbcType="VARCHAR" property="jcBuildHealthRecords" />
+    <result column="jc_health_consult" jdbcType="VARCHAR" property="jcHealthConsult" />
+    <result column="jc_health_guide" jdbcType="VARCHAR" property="jcHealthGuide" />
+    <result column="jc_health_education" jdbcType="VARCHAR" property="jcHealthEducation" />
+    <result column="jc_appoint_clinic" jdbcType="VARCHAR" property="jcAppointClinic" />
+    <result column="jc_hierarchical_medical_service" jdbcType="VARCHAR" property="jcHierarchicalMedicalService" />
+    <result column="extend0" jdbcType="VARCHAR" property="extend0" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="VARCHAR" property="extend2" />
+    <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_code, user_name, doc_code, doc_name, service_package_type_code, service_package_type_name, 
+    person_type_code, person_type_name, jc_build_health_records, jc_health_consult, jc_health_guide, 
+    jc_health_education, jc_appoint_clinic, jc_hierarchical_medical_service, extend0, 
+    extend1, extend2, extend3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_service_package_jc
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_service_package_jc
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    insert into t_service_package_jc (id, user_code, user_name, 
+      doc_code, doc_name, service_package_type_code, 
+      service_package_type_name, person_type_code, 
+      person_type_name, jc_build_health_records, jc_health_consult, 
+      jc_health_guide, jc_health_education, jc_appoint_clinic, 
+      jc_hierarchical_medical_service, extend0, 
+      extend1, extend2, extend3
+      )
+    values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{docCode,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, #{servicePackageTypeCode,jdbcType=VARCHAR}, 
+      #{servicePackageTypeName,jdbcType=VARCHAR}, #{personTypeCode,jdbcType=VARCHAR}, 
+      #{personTypeName,jdbcType=VARCHAR}, #{jcBuildHealthRecords,jdbcType=VARCHAR}, #{jcHealthConsult,jdbcType=VARCHAR}, 
+      #{jcHealthGuide,jdbcType=VARCHAR}, #{jcHealthEducation,jdbcType=VARCHAR}, #{jcAppointClinic,jdbcType=VARCHAR}, 
+      #{jcHierarchicalMedicalService,jdbcType=VARCHAR}, #{extend0,jdbcType=VARCHAR}, 
+      #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, #{extend3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    insert into t_service_package_jc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userCode != null">
+        user_code,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="docCode != null">
+        doc_code,
+      </if>
+      <if test="docName != null">
+        doc_name,
+      </if>
+      <if test="servicePackageTypeCode != null">
+        service_package_type_code,
+      </if>
+      <if test="servicePackageTypeName != null">
+        service_package_type_name,
+      </if>
+      <if test="personTypeCode != null">
+        person_type_code,
+      </if>
+      <if test="personTypeName != null">
+        person_type_name,
+      </if>
+      <if test="jcBuildHealthRecords != null">
+        jc_build_health_records,
+      </if>
+      <if test="jcHealthConsult != null">
+        jc_health_consult,
+      </if>
+      <if test="jcHealthGuide != null">
+        jc_health_guide,
+      </if>
+      <if test="jcHealthEducation != null">
+        jc_health_education,
+      </if>
+      <if test="jcAppointClinic != null">
+        jc_appoint_clinic,
+      </if>
+      <if test="jcHierarchicalMedicalService != null">
+        jc_hierarchical_medical_service,
+      </if>
+      <if test="extend0 != null">
+        extend0,
+      </if>
+      <if test="extend1 != null">
+        extend1,
+      </if>
+      <if test="extend2 != null">
+        extend2,
+      </if>
+      <if test="extend3 != null">
+        extend3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="docCode != null">
+        #{docCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeCode != null">
+        #{servicePackageTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeName != null">
+        #{servicePackageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeCode != null">
+        #{personTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeName != null">
+        #{personTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="jcBuildHealthRecords != null">
+        #{jcBuildHealthRecords,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthConsult != null">
+        #{jcHealthConsult,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthGuide != null">
+        #{jcHealthGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthEducation != null">
+        #{jcHealthEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="jcAppointClinic != null">
+        #{jcAppointClinic,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHierarchicalMedicalService != null">
+        #{jcHierarchicalMedicalService,jdbcType=VARCHAR},
+      </if>
+      <if test="extend0 != null">
+        #{extend0,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        #{extend3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    update t_service_package_jc
+    <set>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="docCode != null">
+        doc_code = #{docCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        doc_name = #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeCode != null">
+        service_package_type_code = #{servicePackageTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePackageTypeName != null">
+        service_package_type_name = #{servicePackageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeCode != null">
+        person_type_code = #{personTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personTypeName != null">
+        person_type_name = #{personTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="jcBuildHealthRecords != null">
+        jc_build_health_records = #{jcBuildHealthRecords,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthConsult != null">
+        jc_health_consult = #{jcHealthConsult,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthGuide != null">
+        jc_health_guide = #{jcHealthGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHealthEducation != null">
+        jc_health_education = #{jcHealthEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="jcAppointClinic != null">
+        jc_appoint_clinic = #{jcAppointClinic,jdbcType=VARCHAR},
+      </if>
+      <if test="jcHierarchicalMedicalService != null">
+        jc_hierarchical_medical_service = #{jcHierarchicalMedicalService,jdbcType=VARCHAR},
+      </if>
+      <if test="extend0 != null">
+        extend0 = #{extend0,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        extend2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        extend3 = #{extend3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hengkt.manage.model.FServicePackageJC">
+    update t_service_package_jc
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      doc_code = #{docCode,jdbcType=VARCHAR},
+      doc_name = #{docName,jdbcType=VARCHAR},
+      service_package_type_code = #{servicePackageTypeCode,jdbcType=VARCHAR},
+      service_package_type_name = #{servicePackageTypeName,jdbcType=VARCHAR},
+      person_type_code = #{personTypeCode,jdbcType=VARCHAR},
+      person_type_name = #{personTypeName,jdbcType=VARCHAR},
+      jc_build_health_records = #{jcBuildHealthRecords,jdbcType=VARCHAR},
+      jc_health_consult = #{jcHealthConsult,jdbcType=VARCHAR},
+      jc_health_guide = #{jcHealthGuide,jdbcType=VARCHAR},
+      jc_health_education = #{jcHealthEducation,jdbcType=VARCHAR},
+      jc_appoint_clinic = #{jcAppointClinic,jdbcType=VARCHAR},
+      jc_hierarchical_medical_service = #{jcHierarchicalMedicalService,jdbcType=VARCHAR},
+      extend0 = #{extend0,jdbcType=VARCHAR},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=VARCHAR},
+      extend3 = #{extend3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
