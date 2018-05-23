@@ -68,6 +68,7 @@ public class MyTest {
 
 	@Test
 	public void testUser() throws Exception {
+		
 		mockMvc.perform((get("/test/aaa.do"))).andExpect(status().isOk()).andDo(print());
 	}
 }
